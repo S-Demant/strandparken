@@ -20,6 +20,7 @@ require "settings/init.php";
 <body>
 
 <h1>Test tekst</h1>
+<h2>Ny tekst her</h2>
 
 <!--
 <div class="row g-2">
