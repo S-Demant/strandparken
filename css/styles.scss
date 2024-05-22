@@ -22,7 +22,7 @@ $dropdown-link-hover-bg: $secondary;
 $dropdown-border-width: 0px;
 // Fonts
 $h1-font-size: 32pt;
-$h2-font-size: 18pt;
+$h2-font-size: 14pt;
 // Links
 $link-decoration: none;
 
@@ -48,10 +48,23 @@ $font-sizes: (
 @import "bootstrapComponents";
 
 // 5. Du kan lave styling her...
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$xtraLarge: 1200px;
+$xxtraLarge: 1400px;
+
+@mixin breakpoint($breakpoint) {
+	@media (min-width: $breakpoint) {
+		@content;
+	}
+}
+
 body, html {
 	margin: 0;
 	padding: 0;
 	background-color: $light;
+	color: $dark;
 	font-family: "Murecho", sans-serif;
 	font-optical-sizing: auto;
 	font-weight: 400;
@@ -62,6 +75,14 @@ body, html {
 
 h1 {
 	font-weight: 700;
+}
+
+h2 {
+	font-weight: 550;
+}
+
+a {
+	font-weight: 550;
 }
 
 .navbar {
@@ -77,6 +98,22 @@ h1 {
 	margin-top: 90px;
 }
 
-a {
-	font-weight: 550;
+.section {
+	height: 645px;
+
+	@include breakpoint($medium) {
+		height: 730px;
+	}
+
+	@include breakpoint($large) {
+		height: 470px;
+	}
+
+	@include breakpoint($xtraLarge) {
+		height: 520px;
+	}
+
+	@include breakpoint($xxtraLarge) {
+		height: 590px;
+	}
 }
