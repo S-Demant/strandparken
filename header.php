@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-lg fixed-top bg-light shadow">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
             <img src="img/logo-header.webp" alt="Hotel Strandparken logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarToggler">
-            <ul class="navbar-nav position-absolute start-50 translate-middle-x">
+            <ul class="d-none d-lg-flex navbar-nav position-absolute start-50 translate-middle-x">
                 <li class="nav-item border-start border-end border-secondary border-2 px-4 py-1">
                     <a class="nav-link" href="opskrifter.html">Aktiviteter</a>
                 </li>
@@ -15,16 +15,23 @@
                     <a class="nav-link" href="inspiration.html">Attraktioner</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ms-auto mb-3 mb-lg-0">
+            <ul class="d-flex d-lg-none navbar-nav position-relative mt-3">
+                <li class="nav-item ps-2 py-1">
+                    <a class="nav-link" href="opskrifter.html">Aktiviteter</a>
+                </li>
+                <li class="nav-item ps-2 py-1">
+                    <a class="nav-link" href="inspiration.html">Attraktioner</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-lg-auto mb-3 mb-lg-0">
                 <li class="nav-item dropdown p-2">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Konto
+                        <img src="img/dk.webp" class="pb-1">&ensp;Dansk
                     </a>
-                    <ul class="dropdown-menu bg-light shadow">
-                        <li><a class="dropdown-item text-primary" href="bruger.html">Opret bruger</a></li>
-                        <li><a class="dropdown-item text-primary" href="madplan.html">Madplan</a></li>
-                        <li><a class="dropdown-item text-primary" href="favoritter.html">Favoritter</a></li>
-                        <li><a class="dropdown-item text-primary" href="#">Indstillinger</a></li>
+                    <ul class="dropdown-menu position-absolute bg-light shadow">
+                        <li><a class="dropdown-item text-primary px-3" href="#"><img src="img/dk.webp" class="pb-1">&ensp;Dansk</a></li>
+                        <li><a class="dropdown-item text-primary px-3" href="#"><img src="img/uk.webp" class="pb-1">&ensp;Engelsk</a></li>
+                        <li><a class="dropdown-item text-primary px-3" href="#"><img src="img/de.webp" class="pb-1">&ensp;Tysk</a></li>
                     </ul>
                 </li>
             </ul>
