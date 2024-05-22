@@ -12,7 +12,7 @@
                     <a class="nav-link" href="activities.php">Aktiviteter</a>
                 </li>
                 <li class="nav-item border-end border-secondary border-2 px-4 py-1">
-                    <a class="nav-link" href="#">Attraktioner</a>
+                    <a class="nav-link" href="attractions.php">Attraktioner</a>
                 </li>
             </ul>
             <ul class="d-flex d-lg-none navbar-nav position-relative mt-3">
@@ -20,7 +20,7 @@
                     <a class="nav-link" href="activities.php">Aktiviteter</a>
                 </li>
                 <li class="nav-item ps-2 py-1">
-                    <a class="nav-link" href="#">Attraktioner</a>
+                    <a class="nav-link" href="attractions.php">Attraktioner</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-lg-auto mb-3 mb-lg-0">
@@ -28,7 +28,7 @@
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="img/dk.webp" class="pb-1">&ensp;Dansk
                     </a>
-                    <ul class="dropdown-menu position-absolute bg-light shadow">
+                    <ul class="dropdown-menu position-absolute bg-light rounded-0 shadow">
                         <li><a class="dropdown-item text-primary px-3" href="#"><img src="img/dk.webp" class="pb-1">&ensp;Dansk</a></li>
                         <li><a class="dropdown-item text-primary px-3" href="#"><img src="img/uk.webp" class="pb-1">&ensp;Engelsk</a></li>
                         <li><a class="dropdown-item text-primary px-3" href="#"><img src="img/de.webp" class="pb-1">&ensp;Tysk</a></li>

@@ -30,9 +30,24 @@ require "settings/init.php";
 
 <div class="container-fluid section-cataloge bg-secondary position-absolute mt-90"></div>
 
+<div class="container d-flex justify-content-end">
+    <div class="dropdown mt-110">
+        <button class="btn border-primary bg-secondary link-primary rounded-0 px-4 py-3 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sortér efter
+        </button>
+        <ul class="dropdown-menu position-absolute bg-secondary border-primary border-1 rounded-0">
+            <li><a class="dropdown-item text-primary px-3" href="#">Dato</a></li>
+            <li><a class="dropdown-item text-primary px-3" href="#">Afstand</a></li>
+            <li><a class="dropdown-item text-primary px-3" href="#">Navn A-Z</a></li>
+            <li><a class="dropdown-item text-primary px-3" href="#">Navn Z-A</a></li>
+        </ul>
+    </div>
+</div>
+
+
 <div class="container position-relative">
     <div class="row">
-        <h2 class="mt-140">Aktiviteter</h2>
+        <h2 class="">Aktiviteter</h2>
         <div class="col-12 col-lg-6 mt-3 pe-lg-4">
             <a href="#"><img src="img/image.webp" class="img-fluid w-100"></a>
         </div>
