@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="d-none d-lg-flex navbar-nav position-absolute start-50 translate-middle-x">
                 <li class="nav-item border-start border-end border-secondary border-2 px-4 py-1">
-                    <a class="nav-link" href="#">Aktiviteter</a>
+                    <a class="nav-link" href="activities.php">Aktiviteter</a>
                 </li>
                 <li class="nav-item border-end border-secondary border-2 px-4 py-1">
                     <a class="nav-link" href="#">Attraktioner</a>
@@ -17,7 +17,7 @@
             </ul>
             <ul class="d-flex d-lg-none navbar-nav position-relative mt-3">
                 <li class="nav-item ps-2 py-1">
-                    <a class="nav-link" href="#">Aktiviteter</a>
+                    <a class="nav-link" href="activities.php">Aktiviteter</a>
                 </li>
                 <li class="nav-item ps-2 py-1">
                     <a class="nav-link" href="#">Attraktioner</a>

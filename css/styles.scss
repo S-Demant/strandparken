@@ -98,7 +98,15 @@ a {
 	margin-top: 90px;
 }
 
-.section {
+.mt-90 {
+	margin-top: 90px;
+}
+
+.mt-140 {
+	margin-top: 140px;
+}
+
+.section-index {
 	height: 645px;
 
 	@include breakpoint($medium) {
@@ -115,5 +123,25 @@ a {
 
 	@include breakpoint($xxtraLarge) {
 		height: 590px;
+	}
+}
+
+.section-cataloge {
+	height: 645px;
+
+	@include breakpoint($medium) {
+		height: 730px;
+	}
+
+	@include breakpoint($large) {
+		height: 550px;
+	}
+
+	@include breakpoint($xtraLarge) {
+		height: 620px;
+	}
+
+	@include breakpoint($xxtraLarge) {
+		height: 700px;
 	}
 }
