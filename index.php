@@ -28,8 +28,37 @@ require "settings/init.php";
     <?php include("header.php"); ?>
 </header>
 
-<h1 class="text-primary">Test tekst</h1>
-<h2 class="test text-info">Ny tekst her</h2>
+
+<div class="container-fluid hero bg-primary d-flex align-items-center">
+    <div class="container text-light">
+        <h1>DEN GODE TITEL<br>PÅ SKÆRMEN HER</h1>
+        <p class="mt-4">Få overblik over <a href="#" class="link-light link-opacity-75-hover">aktiviteter</a><br>og <a href="#" class="link-light link-opacity-75-hover">attraktioner</a> til dit ophold</p>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+
 
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
