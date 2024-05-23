@@ -88,6 +88,48 @@ require "settings/init.php";
     </div>
 </div>
 
+<div class="container position-relative mt-5">
+    <div class="row row-gap-5 gap row-gap-lg-4">
+        <h2 class="mt-3">Andre gæster har også besøgt</h2>
+        <div class="col-12 col-lg-4 d-flex flex-column position-relative">
+            <img src="img/image.webp" class="img-fluid w-100">
+            <h2 class="mt-3">Titel på aktiviteten</h2>
+            <span>23-06-2024</span>
+            <a href="#" class="stretched-link mt-1">Læs mere</a>
+        </div>
+        <div class="col-12 col-lg-4 d-flex flex-column position-relative">
+            <img src="img/image.webp" class="img-fluid w-100">
+            <h2 class="mt-3">Titel på aktiviteten</h2>
+            <span>23-06-2024</span>
+            <a href="#" class="stretched-link mt-1">Læs mere</a>
+        </div>
+        <div class="col-12 col-lg-4 d-flex flex-column position-relative">
+            <img src="img/image.webp" class="img-fluid w-100">
+            <h2 class="mt-3">Titel på aktiviteten</h2>
+            <span>23-06-2024</span>
+            <a href="#" class="stretched-link mt-1">Læs mere</a>
+        </div>
+        <div class="col-12 col-lg-4 d-flex flex-column position-relative">
+            <img src="img/image.webp" class="img-fluid w-100">
+            <h2 class="mt-3">Titel på aktiviteten</h2>
+            <span>23-06-2024</span>
+            <a href="#" class="stretched-link mt-1">Læs mere</a>
+        </div>
+        <div class="col-12 col-lg-4 d-flex flex-column position-relative">
+            <img src="img/image.webp" class="img-fluid w-100">
+            <h2 class="mt-3">Titel på aktiviteten</h2>
+            <span>23-06-2024</span>
+            <a href="#" class="stretched-link mt-1">Læs mere</a>
+        </div>
+        <div class="col-12 col-lg-4 d-flex flex-column position-relative">
+            <img src="img/image.webp" class="img-fluid w-100">
+            <h2 class="mt-3">Titel på aktiviteten</h2>
+            <span>23-06-2024</span>
+            <a href="#" class="stretched-link mt-1">Læs mere</a>
+        </div>
+    </div>
+</div>
+
 <footer>
     <?php include("footer.php"); ?>
 </footer>
