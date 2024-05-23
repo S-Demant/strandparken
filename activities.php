@@ -47,7 +47,7 @@ require "settings/init.php";
 
 <div class="container position-relative">
     <div class="row">
-        <h2 class="">Aktiviteter</h2>
+        <h2>Aktiviteter</h2>
         <div class="col-12 col-lg-6 mt-3 pe-lg-4">
             <a href="#"><img src="img/image.webp" class="img-fluid w-100"></a>
         </div>

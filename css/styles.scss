@@ -85,6 +85,10 @@ a {
 	font-weight: 550;
 }
 
+.crumb {
+	font-weight: 400;
+}
+
 .navbar {
 	min-height: 90px;
 }
@@ -104,6 +108,10 @@ a {
 
 .mt-110 {
 	margin-top: 110px;
+}
+
+.mt-120 {
+	margin-top: 120px;
 }
 
 .mt-140 {
@@ -148,4 +156,8 @@ a {
 	@include breakpoint($xxtraLarge) {
 		height: 700px;
 	}
+}
+
+.map {
+	min-height: 380px;
 }
