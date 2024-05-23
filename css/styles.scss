@@ -45,6 +45,16 @@ $font-sizes: (
 	2: $h2-font-size,
 );
 
+$utilities: (
+	"bg-opacity": (
+		css-var: true,
+		class: bg-opacity,
+		values: (
+			85: .85,
+		)
+	),
+);
+
 @import "bootstrapComponents";
 
 // 5. Du kan lave styling her...
@@ -100,6 +110,17 @@ a {
 .hero {
 	height: 400px;
 	margin-top: 90px;
+}
+
+video {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	min-height: 400px;
+}
+
+#beskrivelse {
+	scroll-margin-top: 170px;
 }
 
 .mt-90 {
