@@ -62,31 +62,28 @@ require "settings/init.php";
     </div>
 </div>
 
-<div class="container position-relative mt-5 mt-lg-3">
-    <div class="row">
-        <h2 class="mt-5">Attraktioner</h2>
+<div class="container-fluid section-cataloge-description bg-secondary position-absolute mt-5"></div>
+
+<div class="container position-relative">
+    <div class="row mt-110">
         <div class="col-12 col-lg-6 mt-3 pe-lg-4">
-            <a href="#"><img src="img/image.webp" class="img-fluid w-100"></a>
+            <h2>Beskrivelse</h2>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+            <p>It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
         </div>
         <div class="col-12 col-lg-6 mt-3 ps-lg-4">
-            <a href="#" class="link-dark"><h2>Titel på aktiviteten</h2></a>
-            <p class="mt-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Ipsum passages, and more recently with desktop.</p>
-            <a href="#">Læs mere</a>
-        </div>
-        <div class="col-12 col-lg-4 mt-5 mt-lg-4 d-flex flex-column position-relative">
             <img src="img/image.webp" class="img-fluid w-100">
-            <h2 class="mt-3">Titel på aktiviteten</h2>
-            <a href="#" class="stretched-link">Læs mere</a>
+            <img src="img/image.webp" class="img-fluid w-100 mt-4">
         </div>
-        <div class="col-12 col-lg-4 mt-5 mt-lg-4 d-flex flex-column position-relative">
-            <img src="img/image.webp" class="img-fluid w-100">
-            <h2 class="mt-3">Titel på aktiviteten</h2>
-            <a href="#" class="stretched-link">Læs mere</a>
-        </div>
-        <div class="col-12 col-lg-4 mt-5 mt-lg-4 d-flex flex-column position-relative">
-            <img src="img/image.webp" class="img-fluid w-100">
-            <h2 class="mt-3">Titel på aktiviteten</h2>
-            <a href="#" class="stretched-link">Læs mere</a>
+    </div>
+</div>
+
+<div class="container info">
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <h2>Information</h2>
+            <p>Besøg aktivitetens hjemmeside for mere information, billet reservation, og lignende.</p>
+            <img src="img/qr.webp">
         </div>
     </div>
 </div>
