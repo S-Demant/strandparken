@@ -46,6 +46,7 @@ require "settings/init.php";
 
 
 <div class="container position-relative">
+    <h2>Aktiviteter</h2>
     <?php
     /* Følgende kode er for at hente relevant data fra activities i databasen */
     $sqlAdd = "";
@@ -54,15 +55,14 @@ require "settings/init.php";
         $sqlAdd = " AND activityId = :activityId"; // Sammensæt activityId
         $bind["activityId"] = $_GET["activityId"]; // Forbind ActivityId
     }
-    $activities = $db->sql("SELECT * FROM activities$sqlAdd", $bind); // Der hentes data fra tabellen activities
+    $activities = $db->sql("SELECT * FROM activities ORDER BY activityId asc $sqlAdd", $bind); // Der hentes data fra tabellen activities
     foreach ($activities as $activity) { // For hver værdi i activities tabellen skal kaldes activity
     ?>
-    <div class="row">
-        <h2>Aktiviteter</h2>
-        <div class="col-12 col-lg-6 mt-3 pe-lg-4">
+    <div class="row mb-4 mb-lg-5">
+        <div class="col-12 col-lg-6 mt-3 <?php if (in_array($activity->activityId, array("2", "4", "6", "8"))) { echo "ps-lg-4 order-0 order-lg-1"; } else { echo "pe-lg-4"; } // Ændring i class med if ?>">
             <a href="activity.php?activityId=<?php echo $activity->activityId ?>"><img src="img/<?php echo $activity->image ?>" class="img-fluid w-100"></a>
         </div>
-        <div class="col-12 col-lg-6 mt-3 ps-lg-4">
+        <div class="col-12 col-lg-6 mt-3 <?php if (in_array($activity->activityId, array("2", "4", "6", "8"))) { echo "pe-lg-4 order-1 order-lg-0"; } else { echo "ps-lg-4"; } // Ændring i class med if ?>">
             <a href="activity.php?activityId=<?php echo $activity->activityId ?>" class="link-dark"><h2><?php echo $activity->activityName; ?></h2></a>
             <span>
                 <?php
