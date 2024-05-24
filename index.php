@@ -35,7 +35,7 @@ require "settings/init.php";
         <p class="mt-4">Få overblik over <a href="activities.php" class="link-light link-opacity-75-hover">aktiviteter</a><br>og <a href="attractions.php" class="link-light link-opacity-75-hover">attraktioner</a> til dit ophold</p>
     </div>
 </div>
-
+<p>test</p>
 <div class="container-fluid section-index bg-secondary position-absolute"></div>
 
 <div class="container position-relative">
