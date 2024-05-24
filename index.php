@@ -46,33 +46,80 @@ require "settings/init.php";
 <div class="container position-relative">
     <div class="row">
         <h2 class="mt-5">Aktiviteter</h2>
+        <?php
+        /* Følgende kode er for at hente relevant data fra activities i databasen */
+        $sqlAdd = "";
+        $bind = [];
+        if (!empty($_GET["activityId"])) { // Hvis activityId er tom, gør dette
+            $sqlAdd = " AND activityId = :activityId"; // Sammensæt activityId
+            $bind["activityId"] = $_GET["activityId"]; // Forbind ActivityId
+        }
+        ?>
+
+        <?php
+        $activities = $db->sql("SELECT * FROM activities ORDER BY dateBegin asc LIMIT 1 $sqlAdd", $bind); // Der hentes data fra tabellen activities
+        foreach ($activities as $activity) { // For hver værdi i activities tabellen skal kaldes activity
+        ?>
         <div class="col-12 col-lg-6 mt-3 pe-lg-4">
-            <a href="activity.php"><img src="img/image.webp" class="img-fluid w-100"></a>
+            <a href="activity.php?activityId=<?php echo $activity->activityId ?>"><img src="img/<?php echo $activity->image ?>" class="img-fluid w-100"></a>
         </div>
         <div class="col-12 col-lg-6 mt-3 ps-lg-4">
-            <a href="#" class="link-dark"><h2>Titel på aktiviteten</h2></a>
-            <span>23-06-2024</span>
-            <p class="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Ipsum passages, and more recently with desktop.</p>
-            <a href="activity.php">Læs mere</a>
+            <a href="activity.php?activityId=<?php echo $activity->activityId ?>" class="link-dark"><h2><?php echo $activity->activityName; ?></h2></a>
+            <span>
+                <?php
+                /* Følgende kode er for aktivitetens start dato */
+                $newDateFormat = date("d/m/Y", strtotime($activity->dateBegin)); // Dato format ændres
+                echo $newDateFormat;
+                ?>
+
+                <?php
+                /* Følgende kode er for aktivitetens slut dato */
+                $newDateFormat = date("d/m/Y", strtotime($activity->dateEnd)); // Dato format ændres
+                if (empty($activity->dateEnd)) { // Hvis der ikke er en slut dato, vis intet
+                    echo '';
+                }
+                else {
+                    echo " - " . $newDateFormat; // Ellers vis dato
+                }
+                ?>
+            </span>
+            <p class="mt-2"><?php echo $activity->descShort . "..."; ?></p>
+            <a href="activity.php?activityId=<?php echo $activity->activityId ?>">Læs mere</a>
         </div>
+            <?php
+        }
+        ?>
+
+        <?php
+        $activities = $db->sql("SELECT * FROM activities ORDER BY dateBegin asc LIMIT 1,3 $sqlAdd", $bind); // Der hentes data fra tabellen activities, og tager data fra 2 til 4
+        foreach ($activities as $activity) { // For hver værdi i activities tabellen skal kaldes activity
+        ?>
         <div class="col-12 col-lg-4 mt-5 mt-lg-4 d-flex flex-column position-relative">
-            <img src="img/image.webp" class="img-fluid w-100">
-            <h2 class="mt-3">Titel på aktiviteten</h2>
-            <span>23-06-2024</span>
-            <a href="activity.php" class="stretched-link mt-1">Læs mere</a>
+            <img src="img/<?php echo $activity->image ?>" class="img-fluid w-100">
+            <h2 class="mt-3"><?php echo $activity->activityName; ?></h2>
+            <span>
+                <?php
+                /* Følgende kode er for aktivitetens start dato */
+                $newDateFormat = date("d/m/Y", strtotime($activity->dateBegin)); // Dato format ændres
+                echo $newDateFormat;
+                ?>
+
+                <?php
+                /* Følgende kode er for aktivitetens slut dato */
+                $newDateFormat = date("d/m/Y", strtotime($activity->dateEnd)); // Dato format ændres
+                if (empty($activity->dateEnd)) { // Hvis der ikke er en slut dato, vis intet
+                    echo '';
+                }
+                else {
+                    echo " - " . $newDateFormat; // Ellers vis dato
+                }
+                ?>
+            </span>
+            <a href="activity.php?activityId=<?php echo $activity->activityId ?>" class="stretched-link mt-1">Læs mere</a>
         </div>
-        <div class="col-12 col-lg-4 mt-5 mt-lg-4 d-flex flex-column position-relative">
-            <img src="img/image.webp" class="img-fluid w-100">
-            <h2 class="mt-3">Titel på aktiviteten</h2>
-            <span>23-06-2024</span>
-            <a href="activity.php" class="stretched-link mt-1">Læs mere</a>
-        </div>
-        <div class="col-12 col-lg-4 mt-5 mt-lg-4 d-flex flex-column position-relative">
-            <img src="img/image.webp" class="img-fluid w-100">
-            <h2 class="mt-3">Titel på aktiviteten</h2>
-            <span>23-06-2024</span>
-            <a href="activity.php" class="stretched-link mt-1">Læs mere</a>
-        </div>
+            <?php
+        }
+        ?>
     </div>
 </div>
 
