@@ -61,7 +61,7 @@ require "settings/init.php";
         foreach ($activities as $activity) { // For hver værdi i activities tabellen skal kaldes activity
         ?>
         <div class="col-12 col-lg-6 mt-3 pe-lg-4">
-            <a href="activity.php?activityId=<?php echo $activity->activityId ?>"><img src="img/<?php echo $activity->image ?>" class="img-fluid w-100"></a>
+            <a href="activity.php?activityId=<?php echo $activity->activityId ?>"><img src="img/<?php echo $activity->image1 ?>" class="img-fluid w-100"></a>
         </div>
         <div class="col-12 col-lg-6 mt-3 ps-lg-4">
             <a href="activity.php?activityId=<?php echo $activity->activityId ?>" class="link-dark"><h2><?php echo $activity->activityName; ?></h2></a>
@@ -95,7 +95,7 @@ require "settings/init.php";
         foreach ($activities as $activity) { // For hver værdi i activities tabellen skal kaldes activity
         ?>
         <div class="col-12 col-lg-4 mt-5 mt-lg-4 d-flex flex-column position-relative">
-            <img src="img/<?php echo $activity->image ?>" class="img-fluid w-100">
+            <img src="img/<?php echo $activity->image1 ?>" class="img-fluid w-100">
             <h2 class="mt-3"><?php echo $activity->activityName; ?></h2>
             <span>
                 <?php
