@@ -89,50 +89,6 @@ require "settings/init.php";
         <?php
     }
     ?>
-    <div class="row mt-lg-4">
-        <div class="col-12 col-lg-6 mt-5 ps-lg-4 order-0 order-lg-1">
-            <a href="#"><img src="img/image.webp" class="img-fluid w-100"></a>
-        </div>
-        <div class="col-12 col-lg-6 mt-3 mt-lg-5 pe-lg-4 order-1 order-lg-0">
-            <a href="#" class="link-dark"><h2>Titel på aktiviteten 2</h2></a>
-            <span>23-06-2024</span>
-            <p class="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Ipsum passages, and more recently with desktop.</p>
-            <a href="#">Læs mere</a>
-        </div>
-    </div>
-    <div class="row mt-lg-4">
-        <div class="col-12 col-lg-6 mt-5 pe-lg-4">
-            <a href="#"><img src="img/image.webp" class="img-fluid w-100"></a>
-        </div>
-        <div class="col-12 col-lg-6 mt-3 mt-lg-5 ps-lg-4">
-            <a href="#" class="link-dark"><h2>Titel på aktiviteten 3</h2></a>
-            <span>23-06-2024</span>
-            <p class="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Ipsum passages, and more recently with desktop.</p>
-            <a href="#">Læs mere</a>
-        </div>
-    </div>
-    <div class="row mt-lg-4">
-        <div class="col-12 col-lg-6 mt-5 ps-lg-4 order-0 order-lg-1">
-            <a href="#"><img src="img/image.webp" class="img-fluid w-100"></a>
-        </div>
-        <div class="col-12 col-lg-6 mt-3 mt-lg-5 pe-lg-4 order-1 order-lg-0">
-            <a href="#" class="link-dark"><h2>Titel på aktiviteten 4</h2></a>
-            <span>23-06-2024</span>
-            <p class="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Ipsum passages, and more recently with desktop.</p>
-            <a href="#">Læs mere</a>
-        </div>
-    </div>
-    <div class="row mt-lg-4">
-        <div class="col-12 col-lg-6 mt-5 pe-lg-4">
-            <a href="#"><img src="img/image.webp" class="img-fluid w-100"></a>
-        </div>
-        <div class="col-12 col-lg-6 mt-3 mt-lg-5 ps-lg-4">
-            <a href="#" class="link-dark"><h2>Titel på aktiviteten 5</h2></a>
-            <span>23-06-2024</span>
-            <p class="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Ipsum passages, and more recently with desktop.</p>
-            <a href="#">Læs mere</a>
-        </div>
-    </div>
 </div>
 
 <footer>
