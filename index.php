@@ -93,8 +93,28 @@ require "settings/init.php";
                 }
                 ?>
             </span>
-            <p class="mt-2"><?php echo $activity->descShort . "..."; ?></p>
-            <a href="activity.php?activityId=<?php echo $activity->activityId . '?' . $lang ?>">Læs mere</a>
+            <p class="mt-2">
+                <?php
+                if ($lang == 'eng') {
+                    echo $activity->descShortEng . "...";
+                } else if ($lang == 'de') {
+                    echo $activity->descShortDe . "...";
+                } else {
+                    echo $activity->descShort . "...";
+                }
+                ?>
+            </p>
+            <a href="activity.php?activityId=<?php echo $activity->activityId . '?' . $lang ?>">
+                <?php
+                if ($lang == 'eng') {
+                    echo "Read more";
+                } else if ($lang == 'de') {
+                    echo "Mehr lesen";
+                } else {
+                    echo "Læs mere";
+                }
+                ?>
+            </a>
         </div>
             <?php
         }
@@ -125,7 +145,17 @@ require "settings/init.php";
                 }
                 ?>
             </span>
-            <a href="activity.php?activityId=<?php echo $activity->activityId . '?' . $lang ?>" class="stretched-link mt-1">Læs mere</a>
+            <a href="activity.php?activityId=<?php echo $activity->activityId . '?' . $lang ?>" class="stretched-link mt-1">
+                <?php
+                if ($lang == 'eng') {
+                    echo "Read more";
+                } else if ($lang == 'de') {
+                    echo "Mehr lesen";
+                } else {
+                    echo "Læs mere";
+                }
+                ?>
+            </a>
         </div>
             <?php
         }

@@ -13,7 +13,7 @@ if (str_contains($url, '?eng') == true) {
 
 <nav class="navbar navbar-expand-lg fixed-top bg-light shadow">
     <div class="container">
-        <a class="navbar-brand" href="index.php">
+        <a class="navbar-brand" href="index.php?<?php echo $lang ?>">
             <img src="img/logo-header.webp" alt="Hotel Strandparken logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,10 +22,30 @@ if (str_contains($url, '?eng') == true) {
         <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="d-none d-lg-flex navbar-nav position-absolute start-50 translate-middle-x">
                 <li class="nav-item border-start border-end border-secondary border-2 px-4 py-1">
-                    <a class="nav-link" href="activities.php">Aktiviteter</a>
+                    <a class="nav-link" href="activities.php?<?php echo $lang ?>">
+                        <?php
+                        if ($lang == 'eng') {
+                            echo "Activities";
+                        } else if ($lang == 'de') {
+                            echo "Aktivitäten";
+                        } else {
+                            echo "Aktiviteter";
+                        }
+                        ?>
+                    </a>
                 </li>
                 <li class="nav-item border-end border-secondary border-2 px-4 py-1">
-                    <a class="nav-link" href="attractions.php">Attraktioner</a>
+                    <a class="nav-link" href="attractions.php?<?php echo $lang ?>">
+                        <?php
+                        if ($lang == 'eng') {
+                            echo "Attractions";
+                        } else if ($lang == 'de') {
+                            echo "Attraktionen";
+                        } else {
+                            echo "Attraktioner";
+                        }
+                        ?>
+                    </a>
                 </li>
             </ul>
             <ul class="d-flex d-lg-none navbar-nav position-relative mt-3">
