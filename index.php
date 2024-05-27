@@ -31,7 +31,17 @@ require "settings/init.php";
 <div class="hero d-flex align-items-center bg-primary">
     <div class="container text-light z-1">
         <h1>DEN GODE TITEL<br>PÅ SKÆRMEN HER</h1>
-        <p class="mt-4">Få overblik over <a href="activities.php" class="link-light link-opacity-75-hover">aktiviteter</a><br>og <a href="attractions.php" class="link-light link-opacity-75-hover">attraktioner</a> til dit ophold</p>
+        <p class="mt-4">
+            <?php
+            if ($lang == 'eng') {
+                echo 'Get an overview of <a href="activities.php?eng" class="link-light link-opacity-75-hover">activities</a><br>and <a href="attractions.php?eng" class="link-light link-opacity-75-hover">attractions</a> for your stay';
+            } else if ($lang == 'de') {
+                echo 'Verschaffen Sie sich einen Überblick über die <a href="activities.php?de" class="link-light link-opacity-75-hover">aktivitäten</a><br>und <a href="attractions.php?de" class="link-light link-opacity-75-hover">attraktionen</a> für Ihren Aufenthalt';
+            } else {
+                echo 'Få overblik over <a href="activities.php" class="link-light link-opacity-75-hover">aktiviteter</a><br>og <a href="attractions.php" class="link-light link-opacity-75-hover">attraktioner</a> til dit ophold';
+            }
+            ?>
+        </p>
     </div>
     <div class="position-absolute">
         <div class="position-absolute w-100 h-100 bg-primary bg-opacity-85"></div>
