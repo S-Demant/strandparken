@@ -1,8 +1,8 @@
 <?php
-require "settings/init.php";
+require "../settings/init.php";
 ?>
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 <head>
     <meta charset="utf-8">
 
@@ -12,7 +12,7 @@ require "settings/init.php";
     <meta name="author" content="Udgiver">
     <meta name="copyright" content="Information om copyright">
 
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="../css/styles.css" rel="stylesheet" type="text/css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -45,17 +45,7 @@ require "settings/init.php";
 
 <div class="container position-relative">
     <div class="row">
-        <h2 class="mt-5">
-            <?php
-            if ($lang == 'eng') {
-                echo "Activities";
-            } else if ($lang == 'de') {
-                echo "Aktivitäten";
-            } else {
-                echo "Aktiviteter";
-            }
-            ?>
-            </h2>
+        <h2 class="mt-5">Activities</h2>
         <?php
         /* Følgende kode er for at hente relevant data fra activities i databasen */
         $sqlAdd = "";
@@ -69,13 +59,13 @@ require "settings/init.php";
         <?php
         $activities = $db->sql("SELECT * FROM activities ORDER BY dateBegin asc LIMIT 1 $sqlAdd", $bind); // Der hentes data fra tabellen activities
         foreach ($activities as $activity) { // For hver værdi i activities tabellen skal kaldes activity
-        ?>
-        <div class="col-12 col-lg-6 mt-3 pe-lg-4">
-            <a href="activity.php?activityId=<?php echo $activity->activityId . '?' . $lang ?>"><img src="img/<?php echo $activity->image1 ?>" class="img-fluid w-100"></a>
-        </div>
-        <div class="col-12 col-lg-6 mt-3 ps-lg-4">
-            <a href="activity.php?activityId=<?php echo $activity->activityId . '?' . $lang ?>" class="link-dark"><h2><?php echo $activity->activityName; ?></h2></a>
-            <span>
+            ?>
+            <div class="col-12 col-lg-6 mt-3 pe-lg-4">
+                <a href="activity.php?activityId=<?php echo $activity->activityId ?>"><img src="img/<?php echo $activity->image1 ?>" class="img-fluid w-100"></a>
+            </div>
+            <div class="col-12 col-lg-6 mt-3 ps-lg-4">
+                <a href="activity.php?activityId=<?php echo $activity->activityId ?>" class="link-dark"><h2><?php echo $activity->activityName; ?></h2></a>
+                <span>
                 <?php
                 /* Følgende kode er for aktivitetens start dato */
                 $newDateFormat = date("d/m/Y", strtotime($activity->dateBegin)); // Dato format ændres
@@ -93,9 +83,9 @@ require "settings/init.php";
                 }
                 ?>
             </span>
-            <p class="mt-2"><?php echo $activity->descShort . "..."; ?></p>
-            <a href="activity.php?activityId=<?php echo $activity->activityId . '?' . $lang ?>">Læs mere</a>
-        </div>
+                <p class="mt-2"><?php echo $activity->descShort . "..."; ?></p>
+                <a href="activity.php?activityId=<?php echo $activity->activityId ?>">Læs mere</a>
+            </div>
             <?php
         }
         ?>
@@ -103,11 +93,11 @@ require "settings/init.php";
         <?php
         $activities = $db->sql("SELECT * FROM activities ORDER BY dateBegin asc LIMIT 1,3 $sqlAdd", $bind); // Der hentes data fra tabellen activities, og tager data fra 2 til 4
         foreach ($activities as $activity) { // For hver værdi i activities tabellen skal kaldes activity
-        ?>
-        <div class="col-12 col-lg-4 mt-5 mt-lg-4 d-flex flex-column position-relative">
-            <img src="img/<?php echo $activity->image1 ?>" class="img-fluid w-100">
-            <h2 class="mt-3"><?php echo $activity->activityName; ?></h2>
-            <span>
+            ?>
+            <div class="col-12 col-lg-4 mt-5 mt-lg-4 d-flex flex-column position-relative">
+                <img src="img/<?php echo $activity->image1 ?>" class="img-fluid w-100">
+                <h2 class="mt-3"><?php echo $activity->activityName; ?></h2>
+                <span>
                 <?php
                 /* Følgende kode er for aktivitetens start dato */
                 $newDateFormat = date("d/m/Y", strtotime($activity->dateBegin)); // Dato format ændres
@@ -125,8 +115,8 @@ require "settings/init.php";
                 }
                 ?>
             </span>
-            <a href="activity.php?activityId=<?php echo $activity->activityId . '?' . $lang ?>" class="stretched-link mt-1">Læs mere</a>
-        </div>
+                <a href="activity.php?activityId=<?php echo $activity->activityId ?>" class="stretched-link mt-1">Læs mere</a>
+            </div>
             <?php
         }
         ?>

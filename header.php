@@ -1,3 +1,16 @@
+<?php
+/* Følgende kode er for at aktivere forskellige sprog */
+$url = 'http://' . $_SERVER['REQUEST_URI'];
+$lang = 'da';
+if (str_contains($url, '?eng') == true) {
+    $lang = 'eng';
+} else if (str_contains($url, '?de') == true) {
+    $lang = 'de';
+} else {
+    $lang = 'da';
+}
+?>
+
 <nav class="navbar navbar-expand-lg fixed-top bg-light shadow">
     <div class="container">
         <a class="navbar-brand" href="index.php">
@@ -26,12 +39,61 @@
             <ul class="navbar-nav ms-lg-auto mb-3 mb-lg-0">
                 <li class="nav-item dropdown p-2">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="img/dk.webp" class="pb-1">&ensp;Dansk
+                        <img src="
+                        <?php
+                        if ($lang == 'eng') {
+                            echo "img/uk.webp";
+                        } else if ($lang == 'de') {
+                            echo "img/de.webp";
+                        } else {
+                            echo "img/dk.webp";
+                        }
+                        ?>
+                        " class="pb-1">&ensp;
+                        <?php
+                        if ($lang == 'eng') {
+                            echo "English";
+                        } else if ($lang == 'de') {
+                            echo "Deutsch";
+                        } else {
+                            echo "Dansk";
+                        }
+                        ?>
                     </a>
                     <ul class="dropdown-menu position-absolute bg-light rounded-0 shadow">
-                        <li><a class="dropdown-item text-primary px-3" href="#"><img src="img/dk.webp" class="pb-1">&ensp;Dansk</a></li>
-                        <li><a class="dropdown-item text-primary px-3" href="#"><img src="img/uk.webp" class="pb-1">&ensp;Engelsk</a></li>
-                        <li><a class="dropdown-item text-primary px-3" href="#"><img src="img/de.webp" class="pb-1">&ensp;Tysk</a></li>
+                        <li><a class="dropdown-item text-primary px-3" href="index.php?da"><img src="img/dk.webp" class="pb-1">&ensp;
+                                <?php
+                                if ($lang == 'eng') {
+                                    echo "Danish";
+                                } else if ($lang == 'de') {
+                                    echo "Dänisch";
+                                } else {
+                                    echo "Dansk";
+                                }
+                                ?>
+                            </a></li>
+                        <li><a class="dropdown-item text-primary px-3" href="index.php?eng"><img src="img/uk.webp" class="pb-1">&ensp;
+                                <?php
+                                if ($lang == 'eng') {
+                                    echo "English";
+                                } else if ($lang == 'de') {
+                                    echo "Englisch";
+                                } else {
+                                    echo "Engelsk";
+                                }
+                                ?>
+                            </a></li>
+                        <li><a class="dropdown-item text-primary px-3" href="index.php?de"><img src="img/de.webp" class="pb-1">&ensp;
+                                <?php
+                                if ($lang == 'eng') {
+                                    echo "German";
+                                } else if ($lang == 'de') {
+                                    echo "Deutsch";
+                                } else {
+                                    echo "Tysk";
+                                }
+                                ?>
+                            </a></li>
                     </ul>
                 </li>
             </ul>

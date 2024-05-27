@@ -50,7 +50,17 @@ foreach ($activities as $activity) { // For hver værdi i activities tabellen sk
 
 <div class="container position-relative">
     <div class="row">
-        <h2 class="mt-4">Aktiviteter</h2>
+        <h2 class="mt-4">
+            <?php
+            if ($lang == 'eng') {
+                echo "Activities";
+            } else if ($lang == 'de') {
+                echo "Aktivitäten";
+            } else {
+                echo "Aktiviteter";
+            }
+            ?>
+        </h2>
         <div class="col-12 col-lg-6 mt-3 pe-lg-4">
             <img src="img/<?php echo $activity->image1 ?>" class="img-fluid w-100">
         </div>
@@ -74,7 +84,16 @@ foreach ($activities as $activity) { // For hver værdi i activities tabellen sk
                 }
                 ?>
             </span>
-            <p class="mt-2"><?php echo $activity->descShort . "..."; ?></p>
+            <p class="mt-2">
+                <?php
+                $url = 'http://' . $_SERVER['REQUEST_URI'];
+                if (str_contains($url, '1') !== false) {
+                    echo $activity->descShort . "...";
+                } else {
+                    echo 'No cars.';
+                }
+                ?>
+            </p>
             <a href="#beskrivelse">Læs mere</a>
         </div>
         <div class="col-12 col-lg-4 mt-5 pe-lg-4">
