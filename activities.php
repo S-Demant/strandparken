@@ -1,12 +1,23 @@
 <?php
 require "settings/init.php";
 ?>
+
+<?php
+/* Følgende kode er for at hente relevant data fra activities i databasen */
+$sqlAdd = "";
+$bind = [];
+if (!empty($_GET["activityId"])) { // Hvis activityId er tom, gør dette
+    $sqlAdd = " AND activityId = :activityId"; // Sammensæt activityId
+    $bind["activityId"] = $_GET["activityId"]; // Forbind ActivityId
+}
+?>
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
     <meta charset="utf-8">
 
-    <title>Sigende titel</title>
+    <title>Aktiviteter | Hotel Strandparken</title>
 
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
@@ -44,26 +55,28 @@ require "settings/init.php";
     </div>
 </div>
 
-
 <div class="container position-relative">
-    <h2>Aktiviteter</h2>
+    <h2>
+        <?php
+        if ($lang == 'eng') {
+            echo "Activities";
+        } else if ($lang == 'de') {
+            echo "Aktivitäten";
+        } else {
+            echo "Aktiviteter";
+        }
+        ?>
+    </h2>
     <?php
-    /* Følgende kode er for at hente relevant data fra activities i databasen */
-    $sqlAdd = "";
-    $bind = [];
-    if (!empty($_GET["activityId"])) { // Hvis activityId er tom, gør dette
-        $sqlAdd = " AND activityId = :activityId"; // Sammensæt activityId
-        $bind["activityId"] = $_GET["activityId"]; // Forbind ActivityId
-    }
     $activities = $db->sql("SELECT * FROM activities ORDER BY activityId asc $sqlAdd", $bind); // Der hentes data fra tabellen activities
     foreach ($activities as $activity) { // For hver værdi i activities tabellen skal kaldes activity
     ?>
     <div class="row mb-4 mb-lg-5">
         <div class="col-12 col-lg-6 mt-3 <?php if (in_array($activity->activityId, array("2", "4", "6", "8"))) { echo "ps-lg-4 order-0 order-lg-1"; } else { echo "pe-lg-4"; } // Ændring i class med if ?>">
-            <a href="activity.php?activityId=<?php echo $activity->activityId ?>"><img src="img/<?php echo $activity->image1 ?>" class="img-fluid w-100"></a>
+            <a href="activity.php?activityId=<?php echo $activity->activityId . '?' . $lang ?>"><img src="img/<?php echo $activity->image1 ?>" class="img-fluid w-100"></a>
         </div>
         <div class="col-12 col-lg-6 mt-3 <?php if (in_array($activity->activityId, array("2", "4", "6", "8"))) { echo "pe-lg-4 order-1 order-lg-0"; } else { echo "ps-lg-4"; } // Ændring i class med if ?>">
-            <a href="activity.php?activityId=<?php echo $activity->activityId ?>" class="link-dark"><h2><?php echo $activity->activityName; ?></h2></a>
+            <a href="activity.php?activityId=<?php echo $activity->activityId . '?' . $lang ?>" class="link-dark"><h2><?php echo $activity->activityName; ?></h2></a>
             <span>
                 <?php
                 /* Følgende kode er for aktivitetens start dato */
@@ -82,8 +95,28 @@ require "settings/init.php";
                 }
                 ?>
             </span>
-            <p class="mt-2"><?php echo $activity->descShort . "..."; ?></p>
-            <a href="activity.php?activityId=<?php echo $activity->activityId ?>">Læs mere</a>
+            <p class="mt-2">
+                <?php
+                if ($lang == 'eng') {
+                    echo $activity->descShortEng . "...";
+                } else if ($lang == 'de') {
+                    echo $activity->descShortDe . "...";
+                } else {
+                    echo $activity->descShort . "...";
+                }
+                ?>
+            </p>
+            <a href="activity.php?activityId=<?php echo $activity->activityId . '?' . $lang ?>">
+                <?php
+                if ($lang == 'eng') {
+                    echo "Read more";
+                } else if ($lang == 'de') {
+                    echo "Mehr lesen";
+                } else {
+                    echo "Læs mere";
+                }
+                ?>
+            </a>
         </div>
     </div>
         <?php

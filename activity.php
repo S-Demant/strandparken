@@ -13,6 +13,8 @@ if (!empty($_GET["activityId"])) { // Hvis activityId ikke er tom, gør dette
     header("Location: /strandparken/index.php"); // Hvis activityId er tom, gå til forside
     exit();
 }
+?>
+<?php
 $activities = $db->sql("SELECT * FROM activities WHERE 1=1 $sqlAdd", $bind); // Der hentes data fra tabellen activities
 foreach ($activities as $activity) { // For hver værdi i activities tabellen skal kaldes activity
 ?>

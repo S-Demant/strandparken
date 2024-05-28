@@ -1,12 +1,23 @@
 <?php
 require "settings/init.php";
 ?>
+
+<?php
+/* Følgende kode er for at hente relevant data fra activities i databasen */
+$sqlAdd = "";
+$bind = [];
+if (!empty($_GET["activityId"])) { // Hvis activityId er tom, gør dette
+    $sqlAdd = " AND activityId = :activityId"; // Sammensæt activityId
+    $bind["activityId"] = $_GET["activityId"]; // Forbind ActivityId
+}
+?>
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
     <meta charset="utf-8">
 
-    <title>Sigende titel</title>
+    <title>Aktiviteter & Attraktioner | Hotel Strandparken</title>
 
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
@@ -66,16 +77,6 @@ require "settings/init.php";
             }
             ?>
             </h2>
-        <?php
-        /* Følgende kode er for at hente relevant data fra activities i databasen */
-        $sqlAdd = "";
-        $bind = [];
-        if (!empty($_GET["activityId"])) { // Hvis activityId er tom, gør dette
-            $sqlAdd = " AND activityId = :activityId"; // Sammensæt activityId
-            $bind["activityId"] = $_GET["activityId"]; // Forbind ActivityId
-        }
-        ?>
-
         <?php
         $activities = $db->sql("SELECT * FROM activities ORDER BY dateBegin asc LIMIT 1 $sqlAdd", $bind); // Der hentes data fra tabellen activities
         foreach ($activities as $activity) { // For hver værdi i activities tabellen skal kaldes activity
