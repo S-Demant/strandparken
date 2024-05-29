@@ -12,6 +12,19 @@ if (!empty($_GET["attractionId"])) { // Hvis attractionId ikke er tom, gør dett
 }
 ?>
 
+<?php
+/* Følgende kode er for at aktivere forskellig rækkefølge */
+$url = 'http://' . $_SERVER['REQUEST_URI'];
+$order = 'rand';
+if (str_contains($url, '?order=a-z') == true) {
+    $order = 'a-z';
+} else if (str_contains($url, '?order=z-a') == true) {
+    $order = 'z-a';
+} else {
+    $order = 'rand';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -47,10 +60,9 @@ if (!empty($_GET["attractionId"])) { // Hvis attractionId ikke er tom, gør dett
             Sortér efter
         </button>
         <ul class="dropdown-menu position-absolute bg-secondary border-primary border-1 rounded-0">
-            <li><a class="dropdown-item text-primary px-3" href="#">Dato</a></li>
-            <li><a class="dropdown-item text-primary px-3" href="#">Afstand</a></li>
-            <li><a class="dropdown-item text-primary px-3" href="#">Navn A-Z</a></li>
-            <li><a class="dropdown-item text-primary px-3" href="#">Navn Z-A</a></li>
+            <li><a class="dropdown-item text-primary px-3" href="?<?php echo $lang ?>?order=rand">Tilfældigt</a></li>
+            <li><a class="dropdown-item text-primary px-3" href="?<?php echo $lang ?>?order=a-z" id="a-z">Navn A-Z</a></li>
+            <li><a class="dropdown-item text-primary px-3" href="?<?php echo $lang ?>?order=z-a" id="z-a">Navn Z-A</a></li
         </ul>
     </div>
 </div>
@@ -68,14 +80,23 @@ if (!empty($_GET["attractionId"])) { // Hvis attractionId ikke er tom, gør dett
         ?>
     </h2>
     <?php
-    $attractions = $db->sql("SELECT * FROM attractions ORDER BY attractionId asc $sqlAdd", $bind); // Der hentes data fra tabellen activities
+    $alist = 0;
+    /* Følgende kode er for at ændre rækkefølgen for visning */
+    if ($order == 'a-z') {
+        $attractions = $db->sql("SELECT * FROM attractions ORDER BY attractionName asc $sqlAdd", $bind);
+    } else if ($order == 'z-a') {
+        $attractions = $db->sql("SELECT * FROM attractions ORDER BY attractionName desc $sqlAdd", $bind);
+    } else {
+        $attractions = $db->sql("SELECT * FROM attractions ORDER BY RAND() $sqlAdd", $bind);
+    }
     foreach ($attractions as $attraction) { // For hver værdi i activities tabellen skal kaldes attraction
-        ?>
+        $alist++; // Tilføjer et nummer til hvert id, for opstilling korrekt
+    ?>
         <div class="row mb-4 mb-lg-5">
-            <div class="col-12 col-lg-6 mt-3 <?php if (in_array($attraction->attractionId, array("2", "4", "6", "8"))) { echo "ps-lg-4 order-0 order-lg-1"; } else { echo "pe-lg-4"; } // Ændring i class med if ?>">
+            <div class="col-12 col-lg-6 mt-3 <?php if (in_array($alist, array("2", "4", "6", "8"))) { echo "ps-lg-4 order-0 order-lg-1"; } else { echo "pe-lg-4"; } // Ændring i class med if ?>">
                 <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>"><img src="img/<?php echo $attraction->image1 ?>" class="img-fluid w-100"></a>
             </div>
-            <div class="col-12 col-lg-6 mt-3 <?php if (in_array($attraction->attractionId, array("2", "4", "6", "8"))) { echo "pe-lg-4 order-1 order-lg-0"; } else { echo "ps-lg-4"; } // Ændring i class med if ?>">
+            <div class="col-12 col-lg-6 mt-3 <?php if (in_array($alist, array("2", "4", "6", "8"))) { echo "pe-lg-4 order-1 order-lg-0"; } else { echo "ps-lg-4"; } // Ændring i class med if ?>">
                 <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>" class="link-dark"><h2><?php echo $attraction->attractionName; ?></h2></a>
                 <p class="mt-2">
                     <?php
