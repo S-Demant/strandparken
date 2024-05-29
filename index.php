@@ -174,32 +174,77 @@ if (!empty($_GET["activityId"])) { // Hvis activityId er tom, gør dette
     </div>
 </div>
 
-<div class="container position-relative mt-5 mt-lg-3">
+<div class="container position-relative">
     <div class="row">
-        <h2 class="mt-5">Attraktioner</h2>
-        <div class="col-12 col-lg-6 mt-3 pe-lg-4">
-            <a href="attraction.php"><img src="img/image.webp" class="img-fluid w-100"></a>
-        </div>
-        <div class="col-12 col-lg-6 mt-3 ps-lg-4">
-            <a href="#" class="link-dark"><h2>Titel på aktiviteten</h2></a>
-            <p class="mt-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Ipsum passages, and more recently with desktop.</p>
-            <a href="attraction.php">Læs mere</a>
-        </div>
-        <div class="col-12 col-lg-4 mt-5 mt-lg-4 d-flex flex-column position-relative">
-            <img src="img/image.webp" class="img-fluid w-100">
-            <h2 class="mt-3">Titel på aktiviteten</h2>
-            <a href="attraction.php" class="stretched-link">Læs mere</a>
-        </div>
-        <div class="col-12 col-lg-4 mt-5 mt-lg-4 d-flex flex-column position-relative">
-            <img src="img/image.webp" class="img-fluid w-100">
-            <h2 class="mt-3">Titel på aktiviteten</h2>
-            <a href="attraction.php" class="stretched-link">Læs mere</a>
-        </div>
-        <div class="col-12 col-lg-4 mt-5 mt-lg-4 d-flex flex-column position-relative">
-            <img src="img/image.webp" class="img-fluid w-100">
-            <h2 class="mt-3">Titel på aktiviteten</h2>
-            <a href="attraction.php" class="stretched-link">Læs mere</a>
-        </div>
+        <h2 class="mt-5">
+            <?php
+            if ($lang == 'eng') {
+                echo "Attractions";
+            } else if ($lang == 'de') {
+                echo "Attraktionen";
+            } else {
+                echo "Attraktioner";
+            }
+            ?>
+        </h2>
+        <?php
+        $attractions = $db->sql("SELECT * FROM attractions ORDER BY attractionId asc LIMIT 1 $sqlAdd", $bind); // Der hentes data fra tabellen attractions
+        foreach ($attractions as $attraction) { // For hver værdi i activities tabellen skal kaldes attraction
+            ?>
+            <div class="col-12 col-lg-6 mt-3 pe-lg-4">
+                <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>"><img src="img/<?php echo $attraction->image1 ?>" class="img-fluid w-100"></a>
+            </div>
+            <div class="col-12 col-lg-6 mt-3 ps-lg-4">
+                <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>" class="link-dark"><h2><?php echo $attraction->attractionName; ?></h2></a>
+                <p class="mt-2">
+                    <?php
+                    if ($lang == 'eng') {
+                        echo $attraction->descShortEng . "...";
+                    } else if ($lang == 'de') {
+                        echo $attraction->descShortDe . "...";
+                    } else {
+                        echo $attraction->descShort . "...";
+                    }
+                    ?>
+                </p>
+                <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>">
+                    <?php
+                    if ($lang == 'eng') {
+                        echo "Read more";
+                    } else if ($lang == 'de') {
+                        echo "Mehr lesen";
+                    } else {
+                        echo "Læs mere";
+                    }
+                    ?>
+                </a>
+            </div>
+            <?php
+        }
+        ?>
+
+        <?php
+        $attractions = $db->sql("SELECT * FROM attractions ORDER BY attractionId asc LIMIT 1,3 $sqlAdd", $bind); // Der hentes data fra tabellen activities, og tager data fra 2 til 4
+        foreach ($attractions as $attraction) { // For hver værdi i activities tabellen skal kaldes attraction
+            ?>
+            <div class="col-12 col-lg-4 mt-5 mt-lg-4 d-flex flex-column position-relative">
+                <img src="img/<?php echo $attraction->image1 ?>" class="img-fluid w-100">
+                <h2 class="mt-3"><?php echo $attraction->attractionName; ?></h2>
+                <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>" class="stretched-link mt-1">
+                    <?php
+                    if ($lang == 'eng') {
+                        echo "Read more";
+                    } else if ($lang == 'de') {
+                        echo "Mehr lesen";
+                    } else {
+                        echo "Læs mere";
+                    }
+                    ?>
+                </a>
+            </div>
+            <?php
+        }
+        ?>
     </div>
 </div>
 

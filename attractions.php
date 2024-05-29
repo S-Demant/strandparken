@@ -1,12 +1,23 @@
 <?php
 require "settings/init.php";
 ?>
+
+<?php
+/* Følgende kode er for at hente relevant data fra activities i databasen */
+$sqlAdd = "";
+$bind = [];
+if (!empty($_GET["attractionId"])) { // Hvis attractionId ikke er tom, gør dette
+    $sqlAdd = " AND attractionId = :attractionId"; // Sammensæt attractionId
+    $bind["attractionId"] = $_GET["attractionId"]; // Forbind attractionId
+}
+?>
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
     <meta charset="utf-8">
 
-    <title>Sigende titel</title>
+    <title>Attraktioner | Hotel Strandparken</title>
 
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
@@ -36,7 +47,7 @@ require "settings/init.php";
             Sortér efter
         </button>
         <ul class="dropdown-menu position-absolute bg-secondary border-primary border-1 rounded-0">
-            <li><a class="dropdown-item text-primary px-3" href="#">Tilfældigt</a></li>
+            <li><a class="dropdown-item text-primary px-3" href="#">Dato</a></li>
             <li><a class="dropdown-item text-primary px-3" href="#">Afstand</a></li>
             <li><a class="dropdown-item text-primary px-3" href="#">Navn A-Z</a></li>
             <li><a class="dropdown-item text-primary px-3" href="#">Navn Z-A</a></li>
@@ -45,57 +56,54 @@ require "settings/init.php";
 </div>
 
 <div class="container position-relative">
-    <div class="row">
-        <h2>Attraktioner</h2>
-        <div class="col-12 col-lg-6 mt-3 pe-lg-4">
-            <a href="#"><img src="img/image.webp" class="img-fluid w-100"></a>
+    <h2>
+        <?php
+        if ($lang == 'eng') {
+            echo "Attractions";
+        } else if ($lang == 'de') {
+            echo "Attraktionen";
+        } else {
+            echo "Attraktioner";
+        }
+        ?>
+    </h2>
+    <?php
+    $attractions = $db->sql("SELECT * FROM attractions ORDER BY attractionId asc $sqlAdd", $bind); // Der hentes data fra tabellen activities
+    foreach ($attractions as $attraction) { // For hver værdi i activities tabellen skal kaldes attraction
+        ?>
+        <div class="row mb-4 mb-lg-5">
+            <div class="col-12 col-lg-6 mt-3 <?php if (in_array($attraction->attractionId, array("2", "4", "6", "8"))) { echo "ps-lg-4 order-0 order-lg-1"; } else { echo "pe-lg-4"; } // Ændring i class med if ?>">
+                <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>"><img src="img/<?php echo $attraction->image1 ?>" class="img-fluid w-100"></a>
+            </div>
+            <div class="col-12 col-lg-6 mt-3 <?php if (in_array($attraction->attractionId, array("2", "4", "6", "8"))) { echo "pe-lg-4 order-1 order-lg-0"; } else { echo "ps-lg-4"; } // Ændring i class med if ?>">
+                <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>" class="link-dark"><h2><?php echo $attraction->attractionName; ?></h2></a>
+                <p class="mt-2">
+                    <?php
+                    if ($lang == 'eng') {
+                        echo $attraction->descShortEng . "...";
+                    } else if ($lang == 'de') {
+                        echo $attraction->descShortDe . "...";
+                    } else {
+                        echo $attraction->descShort . "...";
+                    }
+                    ?>
+                </p>
+                <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>">
+                    <?php
+                    if ($lang == 'eng') {
+                        echo "Read more";
+                    } else if ($lang == 'de') {
+                        echo "Mehr lesen";
+                    } else {
+                        echo "Læs mere";
+                    }
+                    ?>
+                </a>
+            </div>
         </div>
-        <div class="col-12 col-lg-6 mt-3 ps-lg-4">
-            <a href="#" class="link-dark"><h2>Titel på attraktioner 1</h2></a>
-            <p class="mt-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Ipsum passages, and more recently with desktop.</p>
-            <a href="#">Læs mere</a>
-        </div>
-    </div>
-    <div class="row mt-lg-4">
-        <div class="col-12 col-lg-6 mt-5 ps-lg-4 order-0 order-lg-1">
-            <a href="#"><img src="img/image.webp" class="img-fluid w-100"></a>
-        </div>
-        <div class="col-12 col-lg-6 mt-3 mt-lg-5 pe-lg-4 order-1 order-lg-0">
-            <a href="#" class="link-dark"><h2>Titel på attraktioner 2</h2></a>
-            <p class="mt-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Ipsum passages, and more recently with desktop.</p>
-            <a href="#">Læs mere</a>
-        </div>
-    </div>
-    <div class="row mt-lg-4">
-        <div class="col-12 col-lg-6 mt-5 pe-lg-4">
-            <a href="#"><img src="img/image.webp" class="img-fluid w-100"></a>
-        </div>
-        <div class="col-12 col-lg-6 mt-3 mt-lg-5 ps-lg-4">
-            <a href="#" class="link-dark"><h2>Titel på attraktioner 3</h2></a>
-            <p class="mt-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Ipsum passages, and more recently with desktop.</p>
-            <a href="#">Læs mere</a>
-        </div>
-    </div>
-    <div class="row mt-lg-4">
-        <div class="col-12 col-lg-6 mt-5 ps-lg-4 order-0 order-lg-1">
-            <a href="#"><img src="img/image.webp" class="img-fluid w-100"></a>
-        </div>
-        <div class="col-12 col-lg-6 mt-3 mt-lg-5 pe-lg-4 order-1 order-lg-0">
-            <a href="#" class="link-dark"><h2>Titel på attraktioner 4</h2></a>
-            <p class="mt-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Ipsum passages, and more recently with desktop.</p>
-            <a href="#">Læs mere</a>
-        </div>
-    </div>
-    <div class="row mt-lg-4">
-        <div class="col-12 col-lg-6 mt-5 pe-lg-4">
-            <a href="#"><img src="img/image.webp" class="img-fluid w-100"></a>
-        </div>
-        <div class="col-12 col-lg-6 mt-3 mt-lg-5 ps-lg-4">
-            <a href="#" class="link-dark"><h2>Titel på attraktioner 5</h2></a>
-            <p class="mt-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Ipsum passages, and more recently with desktop.</p>
-            <a href="#">Læs mere</a>
-        </div>
-    </div>
+        <?php
+    }
+    ?>
 </div>
 
 <footer>

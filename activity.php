@@ -57,7 +57,7 @@ foreach ($activities as $activity) { // For hver værdi i activities tabellen sk
                 echo "Forside";
             }
             ?>
-        </a> / <a href="activities.php" class="link-primary crumb">
+        </a> / <a href="activities.php?<?php echo $lang ?>" class="link-primary crumb">
             <?php
             if ($lang == 'eng') {
                 echo "Activities";
