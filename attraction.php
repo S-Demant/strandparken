@@ -60,11 +60,11 @@ foreach ($attractions as $attraction) { // For hver værdi i attractions tabelle
         </a> / <a href="attractions.php?<?php echo $lang ?>" class="link-primary crumb">
             <?php
             if ($lang == 'eng') {
-                echo "attractions";
+                echo "Attractions";
             } else if ($lang == 'de') {
-                echo "Aktivitäten";
+                echo "Attraktionen";
             } else {
-                echo "Aktiviteter";
+                echo "Attraktioner";
             }
             ?>
         </a> / <a href="attraction.php?attractionId=<?php echo $attraction->attractionId ?>" class="link-primary crumb"><?php echo $attraction->attractionName; ?></a></span>
