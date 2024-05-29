@@ -41,7 +41,17 @@ if (!empty($_GET["activityId"])) { // Hvis activityId er tom, gør dette
 
 <div class="hero d-flex align-items-center bg-primary">
     <div class="container text-light z-1">
-        <h1>DEN GODE TITEL<br>PÅ SKÆRMEN HER</h1>
+        <h1>
+            <?php
+            if ($lang == 'eng') {
+                echo "WHAT ARE YOU GOING<br>TO EXPERIENCE TODAY?";
+            } else if ($lang == 'de') {
+                echo "WAS SOLLTEN SIE<br>HEUTE ERLEBEN?";
+            } else {
+                echo "HVAD SKAL DU<br>OPLEVE I DAG?";
+            }
+            ?>
+        </h1>
         <p class="mt-4">
             <?php
             if ($lang == 'eng') {

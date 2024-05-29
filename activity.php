@@ -233,7 +233,12 @@ foreach ($activities as $activity) { // For hver værdi i activities tabellen sk
                 }
                 ?>
             </p>
-            <a href="<?php echo $activity->link ?>" target="_blank"><img src="img/<?php echo $activity->qr ?>"></a>
+            <div class="w-100">
+                <a href="<?php echo $activity->link ?>" target="_blank"><img id="img" src="img/<?php echo $activity->qr ?>"></a>
+                <br>
+                <input type="range" min="1" max="100" value="0" class="slider" id="slider" oninput="qrZoom()">
+                <label for="slider"><i class="fa-solid fa-magnifying-glass-plus fa-sm text-secondary"></i></label>
+            </div>
         </div>
     </div>
 </div>
@@ -302,6 +307,26 @@ foreach ($activities as $activity) { // For hver værdi i activities tabellen sk
     <?php include("footer.php"); ?>
 </footer>
 
+<script>
+    var z;
+    function qrZoom() {
+        z = document.getElementById("slider").value; // Henter elementet id slider, samt dets value
+        img = document.getElementById("img"); // Henter elementet id img
+        if (!img.dataset.width) { // Hvis der ikke er hentet størrelses data fra bredde, hent det og sæt det på
+            img.dataset.width = img.width;
+            img.dataset.height = img.height;
+        }
+
+        const width = +img.dataset.width; // Data sættes på const width
+        const height = +img.dataset.height; // Data sættes på const height
+
+        img.style.width = (width * z/100 + width) + "px"; // Regnes ud til at img højde skal passe med sliden
+        img.style.height = (height * z/100 + height) + "px"; // Regnes ud til at img bredde skal passe med sliden
+    }
+    qrZoom();
+</script>
+
+<script src="https://kit.fontawesome.com/73a430866d.js" crossorigin="anonymous"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -210,3 +210,37 @@ video {
 		margin-top: -100px;
 	}
 }
+
+#img {
+	transition: 0.2s;
+	width: 85px;
+	height: 85px;
+}
+
+input[type='range'] {
+	overflow: hidden;
+	-webkit-appearance: none;
+	margin-top: 14px;
+	border-radius: 10px;
+
+	&::-webkit-slider-runnable-track {
+		height: 14px;
+		-webkit-appearance: none;
+		background-color: $secondary;
+		border-radius: 10px;
+	}
+
+	&::-webkit-slider-thumb {
+		width: 14px;
+		-webkit-appearance: none;
+		height: 14px;
+		cursor: ew-resize;
+		background-color: $dark;
+		border-radius: 10px;
+		box-shadow: -85px 0 0 80px $primary;
+	}
+}
+
+.slider {
+	width: 85px;
+}
