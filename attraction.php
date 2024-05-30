@@ -166,6 +166,28 @@ foreach ($attractions as $attraction) { // For hver værdi i attractions tabelle
                 }
                 ?>
                 </span>
+            <h2 class="mt-4">
+                <?php
+                if ($lang == 'eng') {
+                    echo "Opening hours";
+                } else if ($lang == 'de') {
+                    echo "Öffnungszeiten";
+                } else {
+                    echo "Åbningstider";
+                }
+                ?>
+            </h2>
+            <span>
+                <?php
+                if ($lang == 'eng') {
+                    echo $attraction->openingHoursEng;
+                } else if ($lang == 'de') {
+                    echo $attraction->openingHoursDe;
+                } else {
+                    echo $attraction->openingHours;
+                }
+                ?>
+                </span>
         </div>
         <div class="col-12 col-lg-8 mt-2 mt-lg-5 ps-lg-4">
             <iframe class="map w-100" src="<?php echo $attraction->map ?>" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
