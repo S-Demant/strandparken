@@ -59,13 +59,61 @@ if (str_contains($url, '?order=a-z') == true) {
 <div class="container d-flex justify-content-end">
     <div class="dropdown mt-110">
         <button class="btn border-primary bg-secondary link-primary rounded-0 px-4 py-3 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sortér efter
+            <?php
+            if ($lang == 'eng') {
+                echo "Sort by";
+            } else if ($lang == 'de') {
+                echo "Sortiere nach";
+            } else {
+                echo "Sortér efter";
+            }
+            ?>
         </button>
         <ul class="dropdown-menu position-absolute bg-secondary border-primary border-1 rounded-0">
-            <li><a class="dropdown-item text-primary px-3" href="?<?php echo $lang ?>?order=date">Dato</a></li>
-            <li><a class="dropdown-item text-primary px-3" href="?<?php echo $lang ?>?order=rand">Tilfældigt</a></li>
-            <li><a class="dropdown-item text-primary px-3" href="?<?php echo $lang ?>?order=a-z" id="a-z">Navn A-Z</a></li>
-            <li><a class="dropdown-item text-primary px-3" href="?<?php echo $lang ?>?order=z-a" id="z-a">Navn Z-A</a></li
+            <li><a class="dropdown-item text-primary px-3" href="?<?php echo $lang ?>?order=date">
+                    <?php
+                    if ($lang == 'eng') {
+                        echo "Date";
+                    } else if ($lang == 'de') {
+                        echo "Datum";
+                    } else {
+                        echo "Dato";
+                    }
+                    ?>
+                </a></li>
+            <li><a class="dropdown-item text-primary px-3" href="?<?php echo $lang ?>?order=rand">
+                    <?php
+                    if ($lang == 'eng') {
+                        echo "Random";
+                    } else if ($lang == 'de') {
+                        echo "Zufällig";
+                    } else {
+                        echo "Tilfældigt";
+                    }
+                    ?>
+                </a></li>
+            <li><a class="dropdown-item text-primary px-3" href="?<?php echo $lang ?>?order=a-z" id="a-z">
+                    <?php
+                    if ($lang == 'eng') {
+                        echo "Name A-Z";
+                    } else if ($lang == 'de') {
+                        echo "Name A-Z";
+                    } else {
+                        echo "Navn A-Z";
+                    }
+                    ?>
+                </a></li>
+            <li><a class="dropdown-item text-primary px-3" href="?<?php echo $lang ?>?order=z-a" id="z-a">
+                    <?php
+                    if ($lang == 'eng') {
+                        echo "Name Z-A";
+                    } else if ($lang == 'de') {
+                        echo "Name Z-A";
+                    } else {
+                        echo "Navn Z-A";
+                    }
+                    ?>
+                </a></li>
         </ul>
     </div>
 </div>
