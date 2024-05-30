@@ -67,7 +67,17 @@ foreach ($activities as $activity) { // For hver værdi i activities tabellen sk
                 echo "Aktiviteter";
             }
             ?>
-        </a> / <a href="activity.php?activityId=<?php echo $activity->activityId ?>" class="link-primary crumb"><?php echo $activity->activityName; ?></a></span>
+        </a> / <a href="activity.php?activityId=<?php echo $activity->activityId ?>" class="link-primary crumb">
+            <?php
+            if ($lang == 'eng') {
+                echo $activity->activityNameEng;
+            } else if ($lang == 'de') {
+                echo $activity->activityNameDe;
+            } else {
+                echo $activity->activityName;
+            }
+            ?>
+        </a></span>
 </div>
 
 <div class="container position-relative">
@@ -87,7 +97,17 @@ foreach ($activities as $activity) { // For hver værdi i activities tabellen sk
             <img src="img/<?php echo $activity->image1 ?>" class="img-fluid w-100">
         </div>
         <div class="col-12 col-lg-6 mt-3 ps-lg-4">
-            <h2><?php echo $activity->activityName; ?></h2>
+            <h2>
+                <?php
+                if ($lang == 'eng') {
+                    echo $activity->activityNameEng;
+                } else if ($lang == 'de') {
+                    echo $activity->activityNameDe;
+                } else {
+                    echo $activity->activityName;
+                }
+                ?>
+            </h2>
             <span>
                 <?php
                 /* Følgende kode er for aktivitetens start dato */
@@ -266,7 +286,17 @@ foreach ($activities as $activity) { // For hver værdi i activities tabellen sk
         ?>
         <div class="col-12 col-lg-4 d-flex flex-column position-relative">
             <img src="img/<?php echo $activity->image1 ?>" class="img-fluid w-100">
-            <h2 class="mt-3"><?php echo $activity->activityName; ?></h2>
+            <h2 class="mt-3">
+                <?php
+                if ($lang == 'eng') {
+                    echo $activity->activityNameEng;
+                } else if ($lang == 'de') {
+                    echo $activity->activityNameDe;
+                } else {
+                    echo $activity->activityName;
+                }
+                ?>
+            </h2>
             <span>
                 <?php
                 /* Følgende kode er for aktivitetens start dato */

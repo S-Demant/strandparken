@@ -44,11 +44,11 @@ if (!empty($_GET["activityId"])) { // Hvis activityId er tom, gør dette
         <h1>
             <?php
             if ($lang == 'eng') {
-                echo "WHAT ARE YOU GOING<br>TO EXPERIENCE TODAY?";
+                echo "WHAT DO YOU WANT<br>TO EXPERIENCE TODAY?";
             } else if ($lang == 'de') {
-                echo "WAS SOLLTEN SIE<br>HEUTE ERLEBEN?";
+                echo "WAS WOLLEN SIE<br>HEUTE ERLEBEN?";
             } else {
-                echo "HVAD SKAL DU<br>OPLEVE I DAG?";
+                echo "HVAD VIL DU<br>OPLEVE I DAG?";
             }
             ?>
         </h1>
@@ -95,7 +95,18 @@ if (!empty($_GET["activityId"])) { // Hvis activityId er tom, gør dette
             <a href="activity.php?activityId=<?php echo $activity->activityId . '?' . $lang ?>"><img src="img/<?php echo $activity->image1 ?>" class="img-fluid w-100"></a>
         </div>
         <div class="col-12 col-lg-6 mt-3 ps-lg-4">
-            <a href="activity.php?activityId=<?php echo $activity->activityId . '?' . $lang ?>" class="link-dark"><h2><?php echo $activity->activityName; ?></h2></a>
+            <a href="activity.php?activityId=<?php echo $activity->activityId . '?' . $lang ?>" class="link-dark">
+                <h2>
+                    <?php
+                    if ($lang == 'eng') {
+                        echo $activity->activityNameEng;
+                    } else if ($lang == 'de') {
+                        echo $activity->activityNameDe;
+                    } else {
+                        echo $activity->activityName;
+                    }
+                    ?>
+                </h2></a>
             <span>
                 <?php
                 /* Følgende kode er for aktivitetens start dato */
@@ -147,7 +158,17 @@ if (!empty($_GET["activityId"])) { // Hvis activityId er tom, gør dette
         ?>
         <div class="col-12 col-lg-4 mt-5 mt-lg-4 d-flex flex-column position-relative">
             <img src="img/<?php echo $activity->image1 ?>" class="img-fluid w-100">
-            <h2 class="mt-3"><?php echo $activity->activityName; ?></h2>
+            <h2 class="mt-3">
+                <?php
+                if ($lang == 'eng') {
+                    echo $activity->activityNameEng;
+                } else if ($lang == 'de') {
+                    echo $activity->activityNameDe;
+                } else {
+                    echo $activity->activityName;
+                }
+                ?>
+            </h2>
             <span>
                 <?php
                 /* Følgende kode er for aktivitetens start dato */
@@ -205,7 +226,18 @@ if (!empty($_GET["activityId"])) { // Hvis activityId er tom, gør dette
                 <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>"><img src="img/<?php echo $attraction->image1 ?>" class="img-fluid w-100"></a>
             </div>
             <div class="col-12 col-lg-6 mt-3 ps-lg-4">
-                <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>" class="link-dark"><h2><?php echo $attraction->attractionName; ?></h2></a>
+                <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>" class="link-dark">
+                    <h2>
+                        <?php
+                        if ($lang == 'eng') {
+                            echo $attraction->attractionNameEng;
+                        } else if ($lang == 'de') {
+                            echo $attraction->attractionNameDe;
+                        } else {
+                            echo $attraction->attractionName;
+                        }
+                        ?>
+                    </h2></a>
                 <p class="mt-2">
                     <?php
                     if ($lang == 'eng') {
@@ -239,7 +271,17 @@ if (!empty($_GET["activityId"])) { // Hvis activityId er tom, gør dette
             ?>
             <div class="col-12 col-lg-4 mt-5 mt-lg-4 d-flex flex-column position-relative">
                 <img src="img/<?php echo $attraction->image1 ?>" class="img-fluid w-100">
-                <h2 class="mt-3"><?php echo $attraction->attractionName; ?></h2>
+                <h2 class="mt-3">
+                    <?php
+                    if ($lang == 'eng') {
+                        echo $attraction->attractionNameEng;
+                    } else if ($lang == 'de') {
+                        echo $attraction->attractionNameDe;
+                    } else {
+                        echo $attraction->attractionName;
+                    }
+                    ?>
+                </h2>
                 <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>" class="stretched-link mt-1">
                     <?php
                     if ($lang == 'eng') {

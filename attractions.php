@@ -97,7 +97,18 @@ if (str_contains($url, '?order=a-z') == true) {
                 <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>"><img src="img/<?php echo $attraction->image1 ?>" class="img-fluid w-100"></a>
             </div>
             <div class="col-12 col-lg-6 mt-3 <?php if (in_array($alist, array("2", "4", "6", "8"))) { echo "pe-lg-4 order-1 order-lg-0"; } else { echo "ps-lg-4"; } // Ændring i class med if ?>">
-                <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>" class="link-dark"><h2><?php echo $attraction->attractionName; ?></h2></a>
+                <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>" class="link-dark">
+                    <h2>
+                        <?php
+                        if ($lang == 'eng') {
+                            echo $attraction->attractionNameEng;
+                        } else if ($lang == 'de') {
+                            echo $attraction->attractionNameDe;
+                        } else {
+                            echo $attraction->attractionName;
+                        }
+                        ?>
+                    </h2></a>
                 <p class="mt-2">
                     <?php
                     if ($lang == 'eng') {

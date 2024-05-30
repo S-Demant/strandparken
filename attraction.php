@@ -67,7 +67,17 @@ foreach ($attractions as $attraction) { // For hver værdi i attractions tabelle
                 echo "Attraktioner";
             }
             ?>
-        </a> / <a href="attraction.php?attractionId=<?php echo $attraction->attractionId ?>" class="link-primary crumb"><?php echo $attraction->attractionName; ?></a></span>
+        </a> / <a href="attraction.php?attractionId=<?php echo $attraction->attractionId ?>" class="link-primary crumb">
+            <?php
+            if ($lang == 'eng') {
+                echo $attraction->attractionNameEng;
+            } else if ($lang == 'de') {
+                echo $attraction->attractionNameDe;
+            } else {
+                echo $attraction->attractionName;
+            }
+            ?>
+        </a></span>
 </div>
 
 <div class="container position-relative">
@@ -87,7 +97,17 @@ foreach ($attractions as $attraction) { // For hver værdi i attractions tabelle
             <img src="img/<?php echo $attraction->image1 ?>" class="img-fluid w-100">
         </div>
         <div class="col-12 col-lg-6 mt-3 ps-lg-4">
-            <h2><?php echo $attraction->attractionName; ?></h2>
+            <h2>
+                <?php
+                if ($lang == 'eng') {
+                    echo $attraction->attractionNameEng;
+                } else if ($lang == 'de') {
+                    echo $attraction->attractionNameDe;
+                } else {
+                    echo $attraction->attractionName;
+                }
+                ?>
+            </h2>
             <p class="mt-2">
                 <?php
                 if ($lang == 'eng') {
@@ -236,7 +256,17 @@ foreach ($attractions as $attraction) { // For hver værdi i attractions tabelle
             ?>
             <div class="col-12 col-lg-4 d-flex flex-column position-relative">
                 <img src="img/<?php echo $attraction->image1 ?>" class="img-fluid w-100">
-                <h2 class="mt-3"><?php echo $attraction->attractionName; ?></h2>
+                <h2 class="mt-3">
+                    <?php
+                    if ($lang == 'eng') {
+                        echo $attraction->attractionNameEng;
+                    } else if ($lang == 'de') {
+                        echo $attraction->attractionNameDe;
+                    } else {
+                        echo $attraction->attractionName;
+                    }
+                    ?>
+                </h2>
                 <a href="attraction.php?attractionId=<?php echo $attraction->attractionId . '?' . $lang ?>" class="stretched-link mt-1">
                     <?php
                     if ($lang == 'eng') {
