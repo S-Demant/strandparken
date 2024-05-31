@@ -26,9 +26,9 @@ foreach ($attractions as $attraction) { // For hver værdi i attractions tabelle
 
     <title><?php echo $attraction->attractionName; ?> | Aktiviteter | Hotel Strandparken</title>
 
-    <meta name="robots" content="All">
-    <meta name="author" content="Udgiver">
-    <meta name="copyright" content="Information om copyright">
+    <meta name="robots" content="noindex">
+    <meta name="author" content="Silje Wagner Andersson, Christina Nagel, Jacob Kaas Nielsen, Sebastian Demant Christensen">
+    <meta name="copyright" content="Alle rettigheder med undtagelse af billedmateriale tilfalder: Silje Wagner Andersson, Christina Nagel, Jacob Kaas Nielsen, Sebastian Demant Christensen">
 
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 

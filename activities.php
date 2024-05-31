@@ -42,9 +42,9 @@ if (str_contains($url, '?order=a-z') == true) {
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Murecho:wght@100..900&display=swap" rel="stylesheet">
+    <meta name="robots" content="noindex">
+    <meta name="author" content="Silje Wagner Andersson, Christina Nagel, Jacob Kaas Nielsen, Sebastian Demant Christensen">
+    <meta name="copyright" content="Alle rettigheder med undtagelse af billedmateriale tilfalder: Silje Wagner Andersson, Christina Nagel, Jacob Kaas Nielsen, Sebastian Demant Christensen">
 
 </head>
 
