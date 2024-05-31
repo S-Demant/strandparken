@@ -24,6 +24,7 @@ if (!empty($_GET["activityId"])) { // Hvis activityId er tom, gør dette
     <meta name="copyright" content="Alle rettigheder med undtagelse af billedmateriale tilfalder: Silje Wagner Andersson, Christina Nagel, Jacob Kaas Nielsen, Sebastian Demant Christensen">
 
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
